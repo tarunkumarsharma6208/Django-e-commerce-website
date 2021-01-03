@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}"><i class="fas fa-store text-warning fa-2x"></i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle text-uppercase " href="#" id="navbarDropdown"
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        categories
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'home' %}">All Product</a></li>
+                        {% for i in links %}
+                        <li><a class="dropdown-item" href="{{i.get_url}}">{{i.name}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active text-uppercase" aria-current="page" href="{% url 'contact' %}">contact</a></li>
+                {% if request.user.is_authenticated and request.user.first_name %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle text-uppercase"  href="#" data-toggle="dropdown"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Welcome {{request.user.first_name}} <i class="fas fa-user-circle"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'order_history' %}">Order History</a>
+                        </div>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-uppercase" aria-current="page" href="{% url 'logout' %}">
+                        logout <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link active text-uppercase" aria-current="page" href="{% url 'signup' %}">
+                        Sign up <i class="fas fa-user-plus"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-uppercase" aria-current="page" href="{% url 'login'%}">
+                        Sign in <i class="fas fa-sign-in-alt"></i>
+                    </a>
+                </li>
+                {% endif %}
+
+                {% if item_count > 0 %}
+                <li class="nav-item">
+                    <a class="nav-link active text-uppercase" aria-current="page" href="{% url 'cart_detail' %}">
+                        <i class="fas fa-shopping-cart"></i>({{item_count}})</a>
+                </li>
+                {% endif %}
+            </ul>
+            <form class="form-inline" action="{% url 'search' %}" method="get">
+                <div class="input-group ">
+                    <input class="form-control" name="name" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-warning input-group-append" type="submit"><i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>

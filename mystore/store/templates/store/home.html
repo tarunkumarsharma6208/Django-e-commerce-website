@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 
+{% endblock %}
+
+{% block content %}
+<div class="container">
+      <div class="row">
+        {% for i in products %}
+        <div class="col-9 mx-auto col-md-6 col-lg-3">
+          <div class="card mb-4" style="border-color: transparent;">
+            <div class="p-4">
+            <a href="{{i.get_url}}"><img alt="{{i.name}}" class="card-img-top" height="330px" width="220" src="{{i.image.url}}" ></a>
+            </div>
+              <div class="card-footer d-flex justify-content-between" style="background: transparent; border-color: transparent;">
+                <p class="font-weight-bold text-capitalize mb-0">{{i.name}}</p>
+                <h5 class="text-info font-weight-bold mb-0"><span class="mr-1">₹</span>{{i.price}}</h5>
+              </div>
+          </div>
+          </div>
+        {% endfor %}
+
+      </div>
+</div>
+
+{% endblock %}

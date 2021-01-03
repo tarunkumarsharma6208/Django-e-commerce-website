@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row mt-5">
+        <div class="col-10 mx-auto col-md-6 my-3">
+            <img src="{{product.image.url}}" alt="{{product.name}}" height="400px">
+
+        </div>
+        <div class="col-10 mx-auto col-md-6 my-3">
+            <div>
+                <h3 class="product_title">{{product.name}}</h3>
+                <h5 class="card-text text-info font-weight-bold"><span class="mr-1">₹</span>{{product.price}}</h5>
+                <p class="product_description">Product Description</p>
+                <p>{{product.description}}</p>
+                {% if product.stock <= 0 %}
+                <p class="text-justify product_text"><b>Out of Stock</b></p>
+                {% else %}
+                <a href="{% url 'add_cart' product.id %}">
+                <button type="button" name="button" class="btn btn-secondary">
+                    Buy now
+                </button>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
