@@ -122,10 +122,10 @@ STATICFILES = [os.path.join(BASE_DIR, 'static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STRIPE_PUBLISHABLE_KEY = 'pk_test_TqiEUn00gJ6wSe96s05wxrKZ00fIznCXZD'
-STRIPE_SECRET_KEY = 'sk_test_V76lpd3XGgSfkNnQrCJY5z4v00KRmet1UY'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_TqiEUn00gJ6wSe565hfghhffe5496s05wxrKZ00fIznCXZD'
+STRIPE_SECRET_KEY = 'sk_test_V76lpd3XGgSfkNnQrCJf46th44nrwsgrfttfY5z4v00KRmet1UY'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-DEFAULT_FROM_EMAIL = 'ecegcttarun@gmail.com'
+DEFAULT_FROM_EMAIL = 'example@gmail.com'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
