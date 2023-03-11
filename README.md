@@ -1,2 +1,1 @@
-# myshop-website
-#this is shoping  website
+A Django e-commerce website with Stripe payment gateway integration is a web application designed for online merchants who wish to sell products or services to customers worldwide. This website uses the Django framework, which is a powerful and flexible open-source web development framework that enables developers to quickly and easily build robust web applications.
